@@ -2,3 +2,4 @@ __pychache__/
 *.pyc
 venv
 *.sqlite3
+media_files
