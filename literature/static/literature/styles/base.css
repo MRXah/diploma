@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*:after {
+  /* margin: 0; Я подключил нормалайз.css для кроссбраузерности теперь эти свойства ненужни
+    padding: 0;
+    border: 0; */
+  box-sizing: inherit;
+}
+
+/* html, body { Более лаконично писать Inherit чтобы наследовать поведение родителя и не ГОВНО-КОДИТЬ В HTML
+    height: 100%;
+  } */
+
+body {
+  height: inherit;
+  overflow: auto;
+}
+
+li {
+  display: inline-block;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  height: 100%;
+  max-width: 90%;
+  margin: 0px auto;
+  padding: 0 10px;
+}
+
+.wrapper {
+  height: 99%;
+  display: flex;
+  flex-direction: column;
+}
+
+/*  ГЛОБАЛЬНИЕ ЗНАЧЕНИЕ */
+
+
+#map {
+  height: 100%;
+}
+
+.footer {
+  margin-top: auto;
+  align-self: center;
+  font-size: 11px;
+}
+
+
+/* СSS всегда последовательний и футер не желательно писать више остальниз свойств 1. сложно читать 2. может
+  нарушить приорететность */
+
+/* СВОЙСТВА НЕ ПИШУТ ДЛЯ АТРИБУТОВ МАКСИМУМ списки чтобы не поламать приорететность */
+body {
+  background: url("/static/literature/images/bga.png") repeat;
+  background-size: 600px;
+  background-blend-mode: color;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  user-select: none ;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #dc143c;
+  z-index: 2;
+}
+
+.header__inner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+}
+
+.header__list li + li {
+  margin-left: 20px;
+}
+
+.header__list {
+  display: flex;
+  position: relative;
+  z-index: 3;
+}
+
+.header__link {
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.header__logo img {
+  width: 100%;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header__logo {
+  flex: 0 0 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header__title {
+  z-index: 3;
+  color: white;
+  font-size: 38px;
+  font-family: 'Style Script', cursive;
+  letter-spacing: 3px;
+}
+
+.header__search__button {
+  margin-left: auto;
+  margin-right: 0;
+  z-index: 3;
+  cursor: pointer;
+  transform: scale(0.8);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.header__search__button.active img{
+  transform: rotate(0deg);
+  transition: all 0.3s ease 0s;
+}
+
+.header__search__button img{
+  -webkit-tap-highlight-color: transparent;
+  transform: rotate(90deg);
+  transition: all 0.3s ease 0s;
+}
+
+.header__search {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #efe9e1;
+  padding: 70px 10px 0px 10px;
+  transition: all 0.3s ease 0s;
+}
+
+.header__search.active {
+  top: 0;
+}
+
+.map {
+  height: 100%;
+  /* padding: 100px 0px 0px 0px; Так пишут только если 2 паралельних свойства+ ли больше */
+  padding: 90px 0 10px 0;
+}
+
+.header__hamburger {
+  display: none;
+}
+
+.header__menu {
+  position: relative;
+}
+
+
+
+#map {
+  z-index: 1;
+  border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 100%;
+  }
+  .header__hamburger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 3;
+  }
+  .header__inner {
+    height: 50px;
+  }
+  .header__logo {
+    flex: 0 0 40px;
+  }
+  .header__hamburger:before,
+  .header__hamburger:after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 2px;
+    left: 0;
+  }
+  .header__hamburger span {
+    content: '';
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    top: 9px;
+    transition: all 0.3s ease 0s;
+  }
+  .header__hamburger:before {
+    top: 0;
+    transition: all 0.3s ease 0s;
+  }
+  .header__hamburger.active:before {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+  .header__hamburger.active:after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+  }
+  .header__hamburger.active span {
+    transform: scale(0);
+  }
+  .header__hamburger:after {
+    bottom: 0;
+    transition: all 0.3s ease 0s;
+  }
+  .header__menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #efe9e1;
+    padding: 70px 10px 0px 10px;
+    transition: all 0.3s ease 0s;
+  }
+  .header__menu.active {
+    top: 0;
+  }
+
+  .header__search__button {
+    transform: scale(0.6);
+  }
+ 
+
+  
+  .header__list {
+    display: block;
+  }
+  .header__list li {
+    display: block;
+    margin-bottom: 20px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header__list li + li {
+    margin-left: 0;
+  }
+  
+  .header__link {
+    color: #6e0a1e;
+  }
+
+  .header__search__button {
+    margin-right: 10px;
+  }
+
+
+  /* Убрали отступ */
+
+  .header__title {
+    font-size: 28px;
+  }
+
+  .map {
+    height: 100%;
+
+    padding-top: 60px;
+  }
+
+  .footer {
+    font-size: 9px;
+  }
+}

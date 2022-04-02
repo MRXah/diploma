@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'literature/styles/base.css' %}" />
+    <title>{% block title %}{% endblock %}</title>
+    {% block styles %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          
+          <div class="header__inner">
+            <label class="header__title" for="">UKRLIT</label>
+            <div class="header__search__button">
+            <img src="{% static 'literature/images/search.svg' %}" alt="">
+            </div>
+            <div class="header__hamburger">
+              <span></span>
+            </div>
+            <div class="header__search">
+            <p>TEST</p>
+            </div>
+            <nav class="header__menu">
+              <ul class="header__list">
+                <li><a href="/" class="header__link">Головна</a></li>
+                <li><a href="/about" class="header__link">Про нас</a></li>
+                <li><a href="/contacts" class="header__link">Контакти</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {% block content %}{% endblock %}
+      <footer class="footer"><label>All rights reserved (c) 2021</label></footer>
+    </div>
+
+    <script src="{% static 'literature/scripts/script.js' %}"></script>
+    {% block script %}{% endblock %}
+  </body>
+</html>

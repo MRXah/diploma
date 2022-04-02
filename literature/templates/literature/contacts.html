@@ -1,0 +1,27 @@
+{% extends 'literature/base.html' %}
+
+{% load static %}
+
+
+{% block title %}Про нас{% endblock title %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'literature/styles/about_contacts.css' %}">
+{% endblock styles%}
+
+
+{% block content %}
+<section class=".about">
+  <div class="container">
+    <div id="about-contacts">
+    {% for contact in contacts %}
+      <img src="{{contact.image.url}}" alt=""><span>{{contact.name}}: {{contact.contact}}</span><br><br>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}
+
+
+{% block script %}{% endblock script %}

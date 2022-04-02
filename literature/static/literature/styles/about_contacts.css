@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+#about-contacts {
+  height: 100%;
+  border-radius: 10px;
+  margin-top: 90px;
+  background-color: #efe9e1;
+  padding: 10px 10px 10px 10px;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: #6e0a1e;
+}
+
+#about-contacts img, #about-contacts span {
+  height: 32px;
+  width: auto;
+  vertical-align: middle; 
+}
+
+#about-contacts img {
+  margin-right: 10px; 
+}
+
+.header__search__button {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media (max-width: 767px) {
+  #about-contacts {
+    margin-top: 60px;
+    font-size: 16px;
+  }
+
+  #about-contacts img, #about-contacts span {
+    height: 24px;
+  }
+}
