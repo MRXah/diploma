@@ -1,17 +1,7 @@
+from email.policy import default
 from django.db import models
 
 # Create your models here.
-
-
-class ImageModel(models.Model):
-    img = models.ImageField(verbose_name='Зображення')
-
-    def __str__(self) -> str:
-        return self.img
-
-    class Meta:
-        verbose_name_plural = 'Зображення'
-        verbose_name = 'Зображення'
 
 
 class Contact(models.Model):
@@ -27,8 +17,13 @@ class Contact(models.Model):
 
 class Place(models.Model):
     name = models.CharField(max_length=255, verbose_name='Назва')
-    images = models.ManyToManyField(ImageModel)
+    image = models.ImageField(upload_to='uploads/',
+                              verbose_name='Зображення', default=None)
     about = models.TextField(verbose_name='Про місце')
+    address = models.TextField(verbose_name='Адреса', blank=True)
+    links = models.TextField(verbose_name='Посилання', blank=True)
+    x = models.FloatField(verbose_name='Координата Х', default=0)
+    y = models.FloatField(verbose_name='Координата У', default=0)
 
     class Meta:
         verbose_name_plural = 'Місця'

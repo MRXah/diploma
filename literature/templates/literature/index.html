@@ -19,5 +19,15 @@
 <script src="{% static 'literature/scripts/Model.js' %}"></script>
 <script src="{% static 'literature/scripts/View.js' %}"></script>
 <script src="{% static 'literature/scripts/Controller.js' %}"></script>
-<script src="{% static 'literature/scripts/index.js' %}"></script>
+<script>
+  let ADMIN_MODE = false;
+
+  let blob = JSON.parse('{{ places|safe }}'.replace(/\n/g,'---').replace(/\t/g,'123').replace(/\r/g,'123'));
+  const m = new Model(blob);
+  const v = new View();
+
+  const c = new Controller(m, v);
+
+
+</script>
 {% endblock script %}

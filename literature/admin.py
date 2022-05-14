@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contact, ImageModel, Place
+from .models import Contact, Place
 
 # Register your models here.
 
@@ -12,5 +12,4 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(ImageModel)
 admin.site.register(Place)

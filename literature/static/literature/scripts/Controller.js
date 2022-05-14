@@ -20,7 +20,9 @@ class Controller {
     this.model.database.forEach((element) => {
       L.marker([element[0][0], element[0][1]], { icon: this.view.markerIcon })
         .addTo(this.view.map)
-        .bindPopup(`<p id='place-id' hidden>${element[2]}</p><b><i>${element[1]}</i></b>`);
+        .bindPopup(
+          `<p id='place-id' hidden>${element[2]}</p><b><i>${element[1]}</i></b><br><a href="detail/${element[2]}">Переглянкти інформацію</a>`
+        );
     });
   }
 }
