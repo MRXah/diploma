@@ -11,4 +11,5 @@ urlpatterns = [
     path('contacts/', views.contacts, name='contacts'),
     path('detail/<pk>', views.PlaceDV.as_view(), name='view_place'),
     path('create/', views.PlaceCV.as_view(), name='create_place'),
+    path('api/', views.places_json, name='api'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
